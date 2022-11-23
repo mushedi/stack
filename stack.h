@@ -3,8 +3,6 @@
 #ifndef STACK_H
 #define STACK_H
 
-#define SIZE 10
-
 #include "data.h"
 #include <string>
 
@@ -23,14 +21,16 @@ class Stack {
         bool push(int, string);
         bool isEmpty();
 
-        int peek();
-        int pop();
+        void peek();
+        
+        Data pop();
 
 
     private:
         //instance vars
         int top;
-        int stack[SIZE];
+        int size;
+        Data **stack;
 
 };
 
