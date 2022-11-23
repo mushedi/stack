@@ -5,6 +5,10 @@
 
 #define SIZE 10
 
+#include "data.h"
+#include <string>
+
+using std::string;
 
 class Stack {
     
@@ -16,7 +20,7 @@ class Stack {
         ~Stack();
         
         //methods
-        bool push(int);
+        bool push(int, string);
         bool isEmpty();
 
         int peek();
