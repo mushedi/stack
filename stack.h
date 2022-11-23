@@ -10,6 +10,8 @@
 #include <regex>
 
 using std::string;
+using std::to_string;
+using std::regex_search;
 
 class Stack {
     
