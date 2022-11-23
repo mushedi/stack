@@ -32,4 +32,27 @@ Stack::~Stack(){
     }
 
     delete[] stack;
+
 }
+
+//push Data onto Stack
+bool Stack::push(int x, string *info) {
+    bool pushed = false;
+
+    if(top < size && x > -1 && *info != ""){
+        
+        Data *data = new Data;
+        
+        data->id = x;
+        data->information = *info;
+
+        stack[++top] = data;
+
+        pushed = true;
+    
+    }
+
+    return pushed;
+}
+
+
