@@ -1,26 +1,22 @@
-//stack implementation
-
 #include "stack.h"
 
 //constructor
-Stack::Stack(int size){
-
+Stack::Stack(int x){
+    
     top = -1;
 
+    size = x;
+    
     std::smatch m;
-    std::regex e("[^0-9$]");
-    string s = to_string(size);
+    std::regex e ("[^0-9$]");
+    string s = std::to_string(size);
 
-    if(size < 2 || !regex_search(s,m,e)){
-
+    if (size < 2 || !regex_search(s,m,e)) {
         size = DEFAULT;
-
     }
 
     stack = new Data*[size];
-
 }
-
 
 //deconstructor
 Stack::~Stack(){
@@ -35,32 +31,35 @@ Stack::~Stack(){
 
 }
 
-//push Data onto Stack
+//push Data struct onto stack method
 bool Stack::push(int x, string *info) {
 
     bool pushed = false;
+    
+    if(top < size && x > -1 && *info != "") {
 
-    if(top < size && x > -1 && *info != ""){
-        
         Data *data = new Data;
-        
+
         data->id = x;
         data->information = *info;
 
         stack[++top] = data;
 
         pushed = true;
-    
+
     }
 
     return pushed;
+
 }
 
-//popping Data off top of stack
+
+//popping Data struct off top of stack if stack is not empty
 bool Stack::pop(Data *data){
+
     bool popped = false;
 
-    if(top != -1) {
+    if( top != -1) {
 
         data->id = stack[top]->id;
         data->information = stack[top]->information;
@@ -68,39 +67,45 @@ bool Stack::pop(Data *data){
         popped = true;
 
         delete stack[top--];
-
+        
     } else {
 
         data->id = -1;
         data->information = "";
+
     }
 
     return popped;
 }
 
 
-//peeking Data off top of stack
+//peeking top of stack
 bool Stack::peek(Data *data){
+
     bool peeked = false;
 
-    if(top != -1) {
+    if( top != -1) {
 
         data->id = stack[top]->id;
         data->information = stack[top]->information;
 
         peeked = true;
-
-    } else {
         
+    } else {
+
         data->id = -1;
         data->information = "";
+
     }
 
     return peeked;
 }
 
 
-bool Stack::isEmpty() {
+//isEmpty checks if stack is empty
+bool Stack::isEmpty(){
+
     return top == -1;
 }
+
 
