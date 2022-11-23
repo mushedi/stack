@@ -7,6 +7,7 @@
 
 #include "data.h"
 #include <string>
+#include <regex>
 
 using std::string;
 
