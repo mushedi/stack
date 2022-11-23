@@ -69,7 +69,38 @@ bool Stack::pop(Data *data){
 
         delete stack[top--];
 
+    } else {
+
+        data->id = -1;
+        data->information = "";
     }
 
     return popped;
 }
+
+
+//peeking Data off top of stack
+bool Stack::peek(Data *data){
+    bool peeked = false;
+
+    if(top != -1) {
+
+        data->id = stack[top]->id;
+        data->information = stack[top]->information;
+
+        peeked = true;
+
+    } else {
+        
+        data->id = -1;
+        data->information = "";
+    }
+
+    return peeked;
+}
+
+
+bool Stack::isEmpty() {
+    return top == -1;
+}
+
