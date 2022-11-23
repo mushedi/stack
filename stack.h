@@ -3,6 +3,8 @@
 #ifndef STACK_H
 #define STACK_H
 
+#define DEFAULT 10
+
 #include "data.h"
 #include <string>
 
@@ -12,18 +14,16 @@ class Stack {
     
     public:
         //constructor
-        Stack();
+        Stack(int);
 
         //deconstructor
         ~Stack();
         
         //methods
-        bool push(int, string);
+        bool push(int, string*);
+        bool peek(Data*);
+        bool pop(Data*);
         bool isEmpty();
-
-        void peek();
-        
-        Data pop();
 
 
     private:
