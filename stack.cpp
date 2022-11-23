@@ -37,6 +37,7 @@ Stack::~Stack(){
 
 //push Data onto Stack
 bool Stack::push(int x, string *info) {
+
     bool pushed = false;
 
     if(top < size && x > -1 && *info != ""){
@@ -55,4 +56,20 @@ bool Stack::push(int x, string *info) {
     return pushed;
 }
 
+//popping Data off top of stack
+bool Stack::pop(Data *data){
+    bool popped = false;
 
+    if(top != -1) {
+
+        data->id = stack[top]->id;
+        data->information = stack[top]->information;
+
+        popped = true;
+
+        delete stack[top--];
+
+    }
+
+    return popped;
+}
