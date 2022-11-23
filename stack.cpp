@@ -2,6 +2,7 @@
 
 #include "stack.h"
 
+//constructor
 Stack::Stack(int size){
 
     top = -1;
@@ -18,6 +19,17 @@ Stack::Stack(int size){
 
     stack = new Data*[size];
 
+}
+
+
+//deconstructor
+Stack::~Stack(){
     
+    for(int i = top; i > -1; i--){
+        
+        delete stack[i];
     
+    }
+
+    delete[] stack;
 }
